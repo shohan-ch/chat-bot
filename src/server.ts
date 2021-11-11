@@ -43,10 +43,7 @@ async function igniteServer(){
         socket.emit('news',{
             news:"Yahoo we did it"
         })
-        console.log(socket.id);
-        // socket.on("private message", (anotherSocketId, msg) => {
-        //     socket.to(anotherSocketId).emit("private message", socket.id, msg);
-        // });
+
     });
     server.use(express.json())
     server.use(fileUpload({}));
