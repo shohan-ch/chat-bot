@@ -53,6 +53,7 @@
             let message = document.querySelector("#txt").value
             messages.push({name,message})
             initMessages()
+            document.querySelector("#txt").value = ""
             socket.emit('news', {name:name,message:message})
         }
 
