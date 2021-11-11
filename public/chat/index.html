@@ -9,6 +9,20 @@
 <body>
 
     <h3>Chat Application</h3>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        socket.on('connect',()=>{
+            console.log(socket)
+ 
+        })
+
+        socket.on('news',()=>{
+            console.log(socket)
+        })
+
+    </script>
     
 </body>
 </html>

@@ -9,7 +9,7 @@ import 'reflect-metadata'
 import fileUpload from 'express-fileupload'
 import Cors from 'cors'
 import { logger } from 'ex-helpers';
-import http from 'http'
+import http, { createServer } from 'http'
 
 import {Server} from 'socket.io'
 
@@ -33,12 +33,21 @@ async function igniteServer(){
 
 
     const server:Express = express();
-    const io = new Server(http.createServer(server));
+    const httpServer = createServer(server)
+    const io = new Server(httpServer,{
+
+    });
 
    
     io.on('connection', (socket) => {
-        console.log('a user connected');
-      });
+        socket.emit('news',{
+            news:"Yahoo we did it"
+        })
+        console.log(socket.id);
+        // socket.on("private message", (anotherSocketId, msg) => {
+        //     socket.to(anotherSocketId).emit("private message", socket.id, msg);
+        // });
+    });
     server.use(express.json())
     server.use(fileUpload({}));
 
@@ -50,10 +59,10 @@ async function igniteServer(){
     server.use("/account", accountRoutes)
     server.use("/upload", uploadRoutes)
     
-    return server
+    return httpServer
 
 }
-igniteServer().then((server:Express)=>{
+igniteServer().then((server)=>{
     
     logger.info("Server listen at: "+ PORT)
     server.listen(PORT)
