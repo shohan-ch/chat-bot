@@ -12,7 +12,7 @@
 
     <div>
         <input type="text">
-        <button>Send</button>
+        <button onclick="sendMessage()">Send</button>
     </div>
         <div>
             <ul></ul>
@@ -25,8 +25,8 @@
 
         socket.on('connect',()=>{})
 
-        socket.on('news',()=>{
-            console.log(socket)
+        socket.on('news',(data)=>{
+            console.log(data)
         })
 
         function sendMessage(){
