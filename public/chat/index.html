@@ -11,26 +11,44 @@
     <h3>Chat Application</h3>
 
     <div>
-        <input type="text">
+        <input type="text" id="txt" name="txt">
         <button onclick="sendMessage()">Send</button>
     </div>
-        <div>
-            <ul></ul>
+        <div style="max-width: 350px;" id="result">
+            
         </div>
 
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
     <script>
+        let name = localStorage.getItem("name")
+        const resultDiv = document.getElementById("result")
         var socket = io();
+
+        const messages = []
 
         socket.on('connect',()=>{})
 
         socket.on('news',(data)=>{
-            console.log(data)
+            messages.push(data)
+            let html = ""
+            messages.forEach(m=>{
+                if(m.name == name){
+                    html += `<p style="text-align:right;color:green;">${m.message}</p>`
+                }else{
+                    html += `<p style="text-align:left;color:blue;">${m.message}</p>`
+                }
+            })
+
+            resultDiv.innerHTML = html
+
         })
 
         function sendMessage(){
-            socket.emit('news', "Hi There")
+            
+            let message = document.querySelector("#txt").value
+            messages.push(name,message)
+            socket.emit('news', {name:name,message:message})
         }
 
     </script>
