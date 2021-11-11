@@ -31,6 +31,11 @@
 
         socket.on('news',(data)=>{
             messages.push(data)
+
+            initMessages()
+        })
+
+        function initMessages(){
             let html = ""
             messages.forEach(m=>{
                 if(m.name == name){
@@ -41,13 +46,13 @@
             })
 
             resultDiv.innerHTML = html
-
-        })
+        }
 
         function sendMessage(){
             
             let message = document.querySelector("#txt").value
-            messages.push(name,message)
+            messages.push({name,message})
+            initMessages()
             socket.emit('news', {name:name,message:message})
         }
 
