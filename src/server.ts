@@ -9,6 +9,9 @@ import 'reflect-metadata'
 import fileUpload from 'express-fileupload'
 import Cors from 'cors'
 import { logger } from 'ex-helpers';
+import http from 'http'
+
+import {Server} from 'socket.io'
 
 
 export type IPort = number | string
@@ -30,13 +33,17 @@ async function igniteServer(){
 
 
     const server:Express = express();
+    const io = new Server(http.createServer(server));
 
    
-
+    io.on('connection', (socket) => {
+        console.log('a user connected');
+      });
     server.use(express.json())
     server.use(fileUpload({}));
 
     server.use(Cors())
+    server.use('/chat', express.static('public/chat'))
     server.use('/static', express.static('public'))
 
     server.use("/auth", authRoutes)
@@ -47,6 +54,7 @@ async function igniteServer(){
 
 }
 igniteServer().then((server:Express)=>{
+    
     logger.info("Server listen at: "+ PORT)
     server.listen(PORT)
 }).catch(err=>{
