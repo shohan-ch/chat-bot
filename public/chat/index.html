@@ -9,6 +9,16 @@
 <body>
 
     <h3>Chat Application</h3>
+
+    <div>
+        <input type="text">
+        <button>Send</button>
+    </div>
+        <div>
+            <ul></ul>
+        </div>
+
+
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
     <script>
         var socket = io();
@@ -18,6 +28,10 @@
         socket.on('news',()=>{
             console.log(socket)
         })
+
+        function sendMessage(){
+            socket.emit('news', "Hi There")
+        }
 
     </script>
     

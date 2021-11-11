@@ -40,8 +40,8 @@ async function igniteServer(){
 
    
     io.on('connection', (socket) => {
-        socket.emit('news',{
-            news:"Yahoo we did it"
+        socket.on('news', data=>{
+            socket.broadcast.emit('news',data)
         })
 
     });
