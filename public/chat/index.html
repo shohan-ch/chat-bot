@@ -8,18 +8,27 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+    <div id="app">
+        <login v-if="!loggedIN"></login>
+    </div>
 
     <h3>Chat Application</h3>
+
+    <div>
+        <input type="text" placeholder="username">
+        <button>Login</button>
+    </div>
 
     <div>
         <input type="text" id="txt" name="txt">
         <button onclick="sendMessage()">Send</button>
     </div>
-        <div style="max-width: 350px;" id="result">
+    <div style="max-width: 350px;" id="result">
             
        </div>
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="./js/chat.js"></script>
     <script>
         let name = localStorage.getItem("name")

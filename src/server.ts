@@ -22,14 +22,14 @@ async function igniteServer(){
      * @function database connection check
      * @return void
     */
-    try {
-        await connection.authenticate()
-        await connection.sync({force:false});
-        //await connection.models.PasswordReset.sync({force:true})
-    } catch (error) {
-        logger.error(error)
-        process.exit(1);
-    }
+    // try {
+    //     await connection.authenticate()
+    //     await connection.sync({force:false});
+    //     //await connection.models.PasswordReset.sync({force:true})
+    // } catch (error) {
+    //     logger.error(error)
+    //     process.exit(1);
+    // }
 
 
     const server:Express = express();
