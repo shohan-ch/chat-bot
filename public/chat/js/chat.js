@@ -11,6 +11,12 @@ const Root = {
     methods:{
         login(){
             localStorage.setItem(this.name)
+        },
+        initMessage(){
+
+        },
+        sendMessages(){
+
         }
     }
 }
