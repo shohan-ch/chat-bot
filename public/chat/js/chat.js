@@ -1,4 +1,7 @@
 
+
+var socket = io();
+
 const Root = {
 
     data(){
@@ -13,6 +16,7 @@ const Root = {
             localStorage.setItem(this.name)
         },
         initMessage(){
+            //get thereds from server
 
         },
         sendMessages(){
