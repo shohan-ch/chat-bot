@@ -4,6 +4,7 @@ const Root = {
     data(){
         return{
             name:'',
+            messages:[],
             loggedIn:localStorage.getItem("name")||false
         }
     },
