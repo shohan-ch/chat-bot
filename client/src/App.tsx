@@ -10,10 +10,14 @@ function App() {
   useEffect(()=>{
     
     initChat()
-  },[])
+  },['initChat'])
 
   const initChat = ()=>{
-    div.scrollTop(div.prop('scrollHeight'));
+    const d = document.querySelector("#contentBody")
+    if(d !== null){
+      d.scrollTop= d.scrollHeight;
+    }
+   
   }
 
   return (
@@ -132,9 +136,9 @@ function App() {
                
              }}
              >
-                 <span style={{fontSize:'12px', color:'grey'}}>3.32 PM</span>
-                 <BsCheck2 style={{color:'gray'}}/>
-                 <BsCheck2All style={{color:'gray'}}/>
+                 <span style={{fontSize:'12px', color:'lightgray'}}>3.32 PM</span>
+                 <BsCheck2 style={{color:'lightgray'}}/>
+                 <BsCheck2All style={{color:'lightgray'}}/>
                  <BsCheck2All style={{color:'skyblue'}}/>
         
              </div>

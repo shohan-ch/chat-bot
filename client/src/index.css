@@ -136,7 +136,7 @@ body{
 .content-body > .left{
   max-width: 50%;
   min-width: 30%;
-  background-color: cadetblue;
+  background-color: rgb(135, 2, 187);
   padding: 5px;
   border-radius: 12px;
   border-top-left-radius: 0px;
@@ -147,7 +147,7 @@ body{
 .content-body > .right{
   max-width: 50%;
   min-width: 30%;
-  background-color: rgb(117, 55, 233);
+  background-color: rgb(1, 128, 133);
   padding: 5px;
   border-radius: 12px;
   align-self: flex-end;
