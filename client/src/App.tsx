@@ -167,7 +167,7 @@ function App() {
          </div>
          <div className="content-footer">
             <input type="text" className="txt" placeholder="type here ..." />
-            <button>
+            <button >
             Send <AiOutlineSend/> 
             </button>
          </div>
