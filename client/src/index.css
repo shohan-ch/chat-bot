@@ -38,7 +38,7 @@ body{
 }
 
 .sidebar{
-  width:  250px;
+  width:  35%;
   border-right: 1px solid black;
 }
 
@@ -49,7 +49,7 @@ body{
 
 .content{
   flex: 1 auto;
-  margin-left: 10px;
+  
   display: flex;
   flex-direction: column;
   
@@ -58,20 +58,101 @@ body{
 .content-header{
   height: 50px;
   padding: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .content-body{
   flex: auto;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
   background-color: #121418;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.content-body::-webkit-scrollbar {
+  width: 2px;
+}
+ 
+.content-body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+ 
+.content-body::-webkit-scrollbar-thumb {
+  background-color: rgb(59, 59, 59);
+  outline: 1px solid rgb(38, 18, 87);
+}
+
+
+
+.content-body > .left{
+  max-width: 50%;
+  background-color: cadetblue;
+  padding: 5px;
+  border-radius: 12px;
+  border-top-left-radius: 0px;
+  width: auto;
+  margin-bottom: 25px;
+}
+
+.content-body > .right{
+  max-width: 50%;
+  background-color: rgb(117, 55, 233);
+  padding: 5px;
+  border-radius: 12px;
+  align-self: flex-end;
+  float: right;
+  border-top-right-radius: 0px;
+  width: auto;
+  margin-bottom: 25px;
 }
 
 
 .content-footer{
-
   height: 50px;
-  padding: 5px;
+  display: flex;
+  align-items: center;
+ 
 }
+
+.content-footer > input{
+  height:80%;
+  padding:0px 10px;
+
+
+}
+
+.content-footer > input{
+  flex: auto;
+  border: 2px solid rgb(141, 4, 84);
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  background-color: #1a1b1f;
+}
+
+.content-footer > button{
+  
+  padding: 10px 16px;
+  border: 2px solid rgb(177, 5, 125);
+  border-left-width: 0px;
+  background-color: rgb(177, 5, 105);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.content-footer > button:hover{
+
+  border: 2px solid rgb(122, 20, 196);
+  background-color: rgb(37, 3, 61);
+
+}
+
+
 
 
 
@@ -85,11 +166,3 @@ body{
   font-size: 16px;
 }
 
-
-
-@media( max-width<500px ){
-  .chatbox{
-    max-width: 400px;
-  }
-  
-}
