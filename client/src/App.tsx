@@ -7,15 +7,38 @@ function App() {
 
   return (
     <div className="App">
-      <h3>Chat Application</h3>
+      
       <div className="chatbox">
        <div className="sidebar">
 
+         <div className="sidebar-header">
+         <h3>Chat Application</h3>
+         </div>
+
+         <div className="contacts">
+           <div className="contact" style={{display:'flex',alignItems:'center'}}>
+             {/* avatar || name || last time */}
+             <div className="avatar">
+               <img src={logo} width="30" style={{borderRadius:"50%"}} alt=""  />
+             </div>
+             <div className="title">
+                Tareq Hossain
+             </div>
+             <div className="time"></div>
+           </div>
+         </div>
+
        </div>
        <div className="content">
-         <div className="content-header"></div>
-         <div className="content-body"></div>
-         <div className="footer"></div>
+         <div className="content-header">
+         <h3>Me</h3>
+         </div>
+         <div className="content-body">
+           content body
+         </div>
+         <div className="content-footer">
+           content footer
+         </div>
        </div>
       </div>
 
