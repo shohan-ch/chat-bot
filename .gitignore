@@ -5,3 +5,5 @@ dist
 .vscode
 yarn-error.log
 yarn.lock
+client/node_modules
+client/public

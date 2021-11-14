@@ -1,12 +1,12 @@
-# Express-Typescript Starter
-Ex-ts is a basic typescript based express application generator with basic authentication.Just follow the 
-installation process and your authentication part is almost 80% done by default.
+# Whatsapp 2.0
+Whatsapp 2.0 is simple chatting system using express, react and of course typescript
 
 ## Installation
 
 ``` sh
-    npx ex-ts-start {project}
-    cd {project}
+    git clone https://github.com/xtareq/chat-bot
+    cd chat-bot and npm install #yarn
+    cd client and npm install #yarn 
 ```
 
 Open project in your favorite code editor. if you using Visual studio code you can just run: 

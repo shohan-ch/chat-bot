@@ -8,7 +8,7 @@ const Root = {
         return{
             name:'',
             messages:[],
-            loggedIn:localStorage.getItem("name")||false
+            loggedIn:localStorage.getItem("name") || false
         }
     },
     methods:{

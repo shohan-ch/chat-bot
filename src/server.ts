@@ -34,9 +34,7 @@ async function igniteServer(){
 
     const server:Express = express();
     const httpServer = createServer(server)
-    const io = new Server(httpServer,{
-
-    });
+    const io = new Server(httpServer,{});
 
    
     io.on('connection', (socket) => {
