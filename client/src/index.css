@@ -14,7 +14,7 @@ code {
 
 body{
  
-  background-color: #343841;
+  background-color: #35383f;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,17 @@ body{
   color: white;
 }
 
+.badge-success{
+  background-color: green;
+  border-radius: 12px;
+  padding:3px 8px;
+}
+
 
 
 
 .chatbox{
-  width: 80vw;
+  width: 60vw;
   background-color: #282c34;
   border: #1c1e24;
   height: 80vh;
@@ -39,6 +45,12 @@ body{
   box-shadow: 0px 2px 4px rgb(117, 55, 233);
 }
 
+@media (max-width: 1000px) {
+  .chatbox{
+    width: 80vw;
+  }
+}
+
 .sidebar{
   width:  45%;
   border-right: 1px solid rgb(25, 6, 59);
@@ -46,10 +58,10 @@ body{
 
 .sidebar-header{
   height: 45px;
-  padding: 5px;
+  padding: 4px;
   border-bottom: 1px solid rgb(117, 55, 233);
   text-align: center;
-  font-size: 22px;
+  font-size: 21px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,6 +135,7 @@ body{
 
 .content-body > .left{
   max-width: 50%;
+  min-width: 30%;
   background-color: cadetblue;
   padding: 5px;
   border-radius: 12px;
@@ -133,6 +146,7 @@ body{
 
 .content-body > .right{
   max-width: 50%;
+  min-width: 30%;
   background-color: rgb(117, 55, 233);
   padding: 5px;
   border-radius: 12px;
@@ -152,15 +166,13 @@ body{
 }
 
 .content-footer > input{
-  height:80%;
-  padding:0px 10px;
-
-
+ 
+  padding:10px 10px;
 }
 
 .content-footer > input{
   flex: auto;
-  border: 2px solid rgb(122, 20, 196);
+  border-top: 1px solid rgb(122, 20, 196);
   outline: none;
   font-size: 16px;
   color: #fff;
@@ -172,7 +184,7 @@ body{
   align-items: center;
   padding: 10px 16px;
   border-left-width: 0px;
-  border: 2px solid rgb(122, 20, 196);
+  border-top: 2px solid rgb(122, 20, 196);
   background-color: rgb(37, 3, 61);
   color: #fff;
   font-size: 16px;
