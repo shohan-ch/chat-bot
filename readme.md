@@ -1,6 +1,9 @@
 # Whatsapp 2.0
 Whatsapp 2.0 is simple chatting system using express, react and of course typescript
 
+## Screenshots
+![image info](./screenshot.png)
+
 ## Installation
 
 ``` sh
