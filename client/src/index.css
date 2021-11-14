@@ -36,13 +36,13 @@ body{
 .chatbox{
   width: 60vw;
   background-color: #282c34;
-  border: #1c1e24;
+  border: 1px solid #1c1e24;
   height: 80vh;
   margin: 20px;
   display: flex;
   font-size: 15px;
 
-  box-shadow: 0px 2px 4px rgb(117, 55, 233);
+  box-shadow: 0px 2px 2px black;
 }
 
 @media (max-width: 1000px) {
@@ -73,7 +73,7 @@ body{
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 10px 0px 10px 0px;
+  padding: 5px 0px 5px 0px;
   margin-bottom: 1px;
 }
 .small{
