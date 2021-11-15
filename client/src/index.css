@@ -198,6 +198,17 @@ body{
 
 }
 
+.content-footer > .fbutton{
+  padding:10px;
+  cursor:pointer;
+  border-radius:50%;
+  
+}
+
+.content-footer> .fbutton:hover{
+  background-color: #121418;
+}
+
 
 
 

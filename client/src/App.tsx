@@ -1,16 +1,29 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import logo from './logo.svg'
 import { AiOutlineSend } from "react-icons/ai";
 import { BsCheck2, BsCheck2All, BsCamera, BsMic, BsPaperclip } from 'react-icons/bs'
 import './App.css'
+import Webcam from 'react-webcam';
+
 
 function App() {
   const [count, setCount] = useState(0)
-  
+  const [imgSrc, setImgSrc] = useState<string | null>(null)
+  const [showCam, setShowCam]= useState(false)
+  const webcamRef = useRef<Webcam>(null);
+
+  // const capture = useCallback(() => {
+      
+  //   },
+  //   [webcamRef]
+  // );
   useEffect(()=>{
-    
     initChat()
-  },['initChat'])
+
+
+  },['initChat','showCam'])
+
+
 
   const initChat = ()=>{
     const d = document.querySelector("#contentBody")
@@ -20,9 +33,36 @@ function App() {
    
   }
 
+  const openCamera = ()=>{
+    setShowCam(true)
+    console.log("opening camera")
+  }
+
+  const capture = ()=>{
+    if(webcamRef.current){
+      const imageSrc = webcamRef.current.getScreenshot()
+      console.log(imageSrc);
+      setImgSrc(imageSrc)
+      setShowCam(false) 
+    }
+    initChat()
+  }
+
+  const cancel = ()=>{
+    setShowCam(false)
+    initChat()
+  }
+
+  const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user"
+  };
+
+
   return (
     <div className="App">
-      
+
       <div className="chatbox">
        <div className="sidebar">
 
@@ -107,8 +147,27 @@ function App() {
              </div>
             
          </div>
-         <div className="content-body" id="contentBody">
+         <div className="content-body" id="contentBody" style={{position:'relative'}}>
 
+
+
+           {showCam && <div className="webcam">
+             <Webcam
+         audio={false}
+         height="100%"
+         ref={webcamRef}
+         screenshotFormat="image/jpeg"
+         width="100%"
+         videoConstraints={videoConstraints}
+       />
+        
+       <button onClick={capture}>Capture</button>
+       <button onClick={cancel}>Cancel</button>
+   </div>}
+           
+          {!showCam && 
+          <>
+            
            <div className="left">
              <div className="msg-top">
                Hello how are you
@@ -209,13 +268,45 @@ function App() {
                  {/* <BsCheck2All style={{color:'skyblue'}}/> */}
         
              </div>
+    
            </div>
+           {imgSrc &&
+           <div className="right">
+           <div className="msg-top" style={{minWidth:'30%'}}>
+              
+                 <img src={imgSrc} width="100%" height="100%" alt="capture"  />
+             
+             </div>
+            <div className="mgs-time"
+             style={{
+              
+               display:'flex',
+               alignItems:'center',
+               justifyContent:'flex-end'
+               
+             }}
+             >
+                 <span style={{fontSize:'12px', color:'lightgray',paddingRight:'2px'}}>3.32 PM</span>
+                 {/* <BsCheck2 style={{color:'lightgray'}}/> */}
+                 <BsCheck2All style={{color:'lightgray'}}/>
+                 {/* <BsCheck2All style={{color:'skyblue'}}/> */}
+        
+             </div>
+    
+           </div>
+             }
 
+
+          </>
+          }
+
+         
 
            
          </div>
+      
          <div className="content-footer">
-              <span style={{padding:'0px 15px', cursor:'pointer', borderRadius:'50%'}}>
+              <span className="fbutton" onClick={openCamera}>
                 <BsCamera/>
               </span>
               <span style={{padding:'0px 15px', cursor:'pointer', borderRadius:'50%'}}>
