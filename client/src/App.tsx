@@ -4,12 +4,14 @@ import { AiOutlineSend } from "react-icons/ai";
 import { BsCheck2, BsCheck2All, BsCamera, BsMic, BsPaperclip } from 'react-icons/bs'
 import './App.css'
 import Webcam from 'react-webcam';
+import { Login } from './pages/Login';
 
 
 function App() {
   const [count, setCount] = useState(0)
   const [imgSrc, setImgSrc] = useState<string | null>(null)
   const [showCam, setShowCam]= useState(false)
+  const [loggedIn, setLoggedIn] = useState(false)
   const webcamRef = useRef<Webcam>(null);
 
   // const capture = useCallback(() => {
@@ -59,9 +61,19 @@ function App() {
     facingMode: "user"
   };
 
+  const checkIsLoggedIn = (value:boolean)=>{
+      setLoggedIn(value)
+  }
+  const doLogout = ()=>{
+        setLoggedIn(false)
+  }
 
   return (
     <div className="App">
+
+      { !loggedIn?
+        <Login getLogin={checkIsLoggedIn}/>:
+    
 
       <div className="chatbox">
        <div className="sidebar">
@@ -322,7 +334,7 @@ function App() {
          </div>
        </div>
       </div>
-
+      }
     </div>
   )
 }

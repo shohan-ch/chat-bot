@@ -68,6 +68,9 @@ body{
   font-weight: bold;
   color: rgb(143, 86, 248);
 }
+label{
+  font-size: small;
+}
 
 .contact{
   cursor: pointer;
