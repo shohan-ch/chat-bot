@@ -6,12 +6,15 @@ import './App.css'
 import Webcam from 'react-webcam';
 import { Login } from './pages/Login';
 
+const localUsername = localStorage.getItem('username') || ''
+
 
 function App() {
   const [count, setCount] = useState(0)
   const [imgSrc, setImgSrc] = useState<string | null>(null)
   const [showCam, setShowCam]= useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
+  const [username, setUsername] = useState(localUsername)
   const webcamRef = useRef<Webcam>(null);
 
   // const capture = useCallback(() => {
@@ -20,7 +23,10 @@ function App() {
   //   [webcamRef]
   // );
   useEffect(()=>{
-    initChat()
+    if(loggedIn){
+      initChat()
+    }
+   
 
 
   },['initChat','showCam'])
