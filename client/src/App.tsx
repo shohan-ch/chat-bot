@@ -6,16 +6,15 @@ import './App.css'
 import Webcam from 'react-webcam';
 import { Login } from './pages/Login';
 
-const localUsername = localStorage.getItem('username') || ''
+
 
 
 function App() {
-  const [count, setCount] = useState(0)
   const [imgSrc, setImgSrc] = useState<string | null>(null)
   const [showCam, setShowCam]= useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
-  const [username, setUsername] = useState(localUsername)
   const webcamRef = useRef<Webcam>(null);
+  const localUsername = localStorage.getItem('username') || ''
 
   // const capture = useCallback(() => {
       
@@ -27,7 +26,7 @@ function App() {
       initChat()
     }
 
-    if(username !== ''){
+    if(localUsername !== ''){
       setLoggedIn(true)
     }
    
@@ -53,7 +52,6 @@ function App() {
   const capture = ()=>{
     if(webcamRef.current){
       const imageSrc = webcamRef.current.getScreenshot()
-      console.log(imageSrc);
       setImgSrc(imageSrc)
       setShowCam(false) 
     }
