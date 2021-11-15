@@ -26,6 +26,10 @@ function App() {
     if(loggedIn){
       initChat()
     }
+
+    if(username !== ''){
+      setLoggedIn(true)
+    }
    
 
 
@@ -71,6 +75,7 @@ function App() {
       setLoggedIn(value)
   }
   const doLogout = ()=>{
+        localStorage.removeItem('username');
         setLoggedIn(false)
   }
 

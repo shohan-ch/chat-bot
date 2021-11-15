@@ -9,6 +9,7 @@ export const Login:FC<{getLogin:Function}> = ({getLogin})=>{
     const doLogin = (e:any)=>{
         e.preventDefault()
         if(username !== "" && password !== ""){
+            localStorage.setItem('username',username)
            getLogin(true)
         }else{
             window.alert("username is required!")
