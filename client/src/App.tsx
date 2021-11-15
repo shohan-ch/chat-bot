@@ -78,8 +78,9 @@ function App() {
       <div className="chatbox">
        <div className="sidebar">
 
-         <div className="sidebar-header" style={{padding:'8px'}}>
-              Chat Application
+         <div className="sidebar-header" style={{padding:'8px','display':'flex',flexDirection:'column'}}>
+             <div>Whatsapp 2.0</div>
+             <button onClick={doLogout} style={{backgroundColor:'transparent',border:'0','color':'silver', cursor:'pointer'}}>Logout</button>
          </div>
 
          <div className="contacts">

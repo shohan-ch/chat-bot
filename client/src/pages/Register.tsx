@@ -2,7 +2,7 @@ import { FC, MouseEventHandler, useState } from "react";
 
 
 
-export const Login:FC<{getLogin:Function}> = ({getLogin})=>{
+export const Register:FC<{getLogin:Function}> = ({getLogin})=>{
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
