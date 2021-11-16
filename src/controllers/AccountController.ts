@@ -12,7 +12,6 @@ export class AccountController{
 
     @Validate(['old_password','new_password','confirm_password:match=new_password'])
     async changePassword(req:IRequest, res:Response){
-        
         try {
             let body = req.body 
             let isUser = await User.findByPk(req.userId)

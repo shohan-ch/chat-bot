@@ -10,7 +10,6 @@ const accountController = new AccountController();
 
 //initialize router
 const router = Router()
-
 router.use(Authenticate)
 
 router.get("/profile", accountController.getProfile)

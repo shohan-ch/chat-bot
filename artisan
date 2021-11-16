@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const cli = require('ex-ts-cli')
+
+cli.run().catch(r=>{
+    throw new Error(r)
+})
